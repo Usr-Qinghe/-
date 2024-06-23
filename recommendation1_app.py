@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
 import numpy as np
 import torch
+from sklearn.ensemble import GradientBoostingRegressor
 
 # 加载数据集
 file_path = 'bookstoscrape.csv'
@@ -32,7 +33,7 @@ tfidf_matrix = tfidf_vectorizer.fit_transform(data['Title'])
 # 导入模型
 model_path = 'model.pkl'
 with open(model_path, 'rb') as file:
-    linear_regression = pickle.load(file)
+    gb_regression = pickle.load(file)
 
 # 设计用户界面
 st.title('Book Recommendation System')
